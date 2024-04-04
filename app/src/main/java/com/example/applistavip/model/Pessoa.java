@@ -6,17 +6,16 @@ public class Pessoa {
     private String primeiroNome;
     private String segundoNome;
     private String nomeCurso;
-    private int tel;
+    private String tel;
 
     // construtores
-    public Pessoa (String primeiroNome, String segundoNome, String nomeCurso, int tel) {
+    public Pessoa (String primeiroNome, String segundoNome, String nomeCurso, String tel) {
 
         this.primeiroNome = primeiroNome;
         this.segundoNome = segundoNome;
         this.nomeCurso = nomeCurso;
         this.tel = tel;
     }
-    public Pessoa(){}
 
     // getters e setters
 
@@ -41,11 +40,11 @@ public class Pessoa {
         this.nomeCurso = nomeCurso;
     }
 
-    public int getTel() {
+    public String getTel() {
         return tel;
     }
 
-    public void setTel(int tel) {
+    public void setTel(String tel) {
         this.tel = tel;
     }
 

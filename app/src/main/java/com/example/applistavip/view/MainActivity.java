@@ -1,12 +1,14 @@
 package com.example.applistavip.view;
 
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+//import androidx.core.graphics.Insets;
+//import androidx.core.view.ViewCompat;
+//import androidx.core.view.WindowInsetsCompat;
 
 import com.example.applistavip.R;
 
@@ -14,7 +16,9 @@ import com.example.applistavip.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
-    Pessoa pessoa, pessoa2;
+    Pessoa pessoa;
+    EditText editPrimeiroNome, editSegundoNome, editCurso, editTel;
+    Button btnLimpar, btnSalvar, btnFinalizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,13 +26,22 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        pessoa = new Pessoa("joao", "victor", "engenharia", 998732041);
-        pessoa2 = new Pessoa();
+        // instanciei o objeto
+        pessoa = new Pessoa("joao", "victor", "engenharia", "12112345678");
 
-        pessoa2.setPrimeiroNome("duda");
-        pessoa2.setSegundoNome("peitudinha");
-        pessoa2.setNomeCurso("engenharia");
-        pessoa2.setTel(12345612);
+        editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
+        editSegundoNome = findViewById(R.id.editSegundoNome);
+        editCurso = findViewById(R.id.editCurso);
+        editTel = findViewById(R.id.editTel);
+
+        btnLimpar = findViewById(R.id.btnLimpar);
+        btnSalvar = findViewById(R.id.btnSalvar);
+        btnFinalizar = findViewById(R.id.btnFinalizar);
+
+        editPrimeiroNome.setText(pessoa.getPrimeiroNome());
+        editSegundoNome.setText(pessoa.getSegundoNome());
+        editCurso.setText(pessoa.getNomeCurso());
+        editTel.setText(pessoa.getTel());
 
 
 
