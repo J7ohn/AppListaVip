@@ -48,4 +48,14 @@ public class Pessoa {
     public void setTel(int tel) {
         this.tel = tel;
     }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "primeiroNome='" + primeiroNome + '\'' +
+                ", segundoNome='" + segundoNome + '\'' +
+                ", nomeCurso='" + nomeCurso + '\'' +
+                ", tel=" + tel +
+                '}';
+    }
 }
