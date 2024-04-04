@@ -14,7 +14,7 @@ import com.example.applistavip.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
-    Pessoa pessoa;
+    Pessoa pessoa, pessoa2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +22,14 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
+        pessoa = new Pessoa("joao", "victor", "engenharia", 998732041);
+        pessoa2 = new Pessoa();
 
-        pessoa = new Pessoa();
+        pessoa2.setPrimeiroNome("duda");
+        pessoa2.setSegundoNome("peitudinha");
+        pessoa2.setNomeCurso("engenharia");
+        pessoa2.setTel(12345612);
+
+
     }
 }
