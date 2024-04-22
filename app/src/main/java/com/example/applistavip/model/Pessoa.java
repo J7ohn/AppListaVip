@@ -16,6 +16,9 @@ public class Pessoa {
         this.nomeCurso = nomeCurso;
         this.tel = tel;
     }
+    public Pessoa (){
+    }
+
 
     // getters e setters
 

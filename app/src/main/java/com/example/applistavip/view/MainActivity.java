@@ -41,7 +41,12 @@ public class MainActivity extends AppCompatActivity {
         controller.toString();
 
         // instanciei o objeto pessoa do model
-        pessoa = new Pessoa("joao", "victor", "engenharia", "12112345678");
+        pessoa = new Pessoa();
+        pessoa.setPrimeiroNome(preferences.getString("primeiroNome", ""));
+        pessoa.setSegundoNome(preferences.getString("segundoNome", ""));
+        pessoa.setNomeCurso(preferences.getString("nomeCurso", ""));
+        pessoa.setTel(preferences.getString("tel", ""));
+
 
         // ligação entre o id e a classe java
         editPrimeiroNome = findViewById(R.id.editPrimeiroNome);
