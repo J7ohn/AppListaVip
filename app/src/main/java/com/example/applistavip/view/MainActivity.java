@@ -20,10 +20,6 @@ import com.example.applistavip.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences preferences;
-    SharedPreferences.Editor listaVip;
-    public static final String NOME_PREFERENCES = "pref_listaVip";
-
     PessoaController controller;
     Pessoa pessoa;
     EditText editPrimeiroNome, editSegundoNome, editCurso, editTel;
@@ -35,18 +31,12 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        preferences = getSharedPreferences(NOME_PREFERENCES, 0);
-        listaVip = preferences.edit();
-
-        controller = new PessoaController();
+        controller = new PessoaController(MainActivity.this);
         controller.toString();
 
         // instanciei o objeto pessoa do model
         pessoa = new Pessoa();
-        pessoa.setPrimeiroNome(preferences.getString("primeiroNome", ""));
-        pessoa.setSegundoNome(preferences.getString("segundoNome", ""));
-        pessoa.setNomeCurso(preferences.getString("nomeCurso", ""));
-        pessoa.setTel(preferences.getString("tel", ""));
+        controller.buscar(pessoa);
 
 
         // ligação entre o id e a classe java
@@ -75,8 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 editCurso.setText("");
                 editTel.setText("");
 
-                listaVip.clear();
-                listaVip.apply();
+                controller.limpar();
 
             }
         });
@@ -97,11 +86,6 @@ public class MainActivity extends AppCompatActivity {
 
                 Toast.makeText(MainActivity.this, pessoa.toString(), Toast.LENGTH_LONG).show();
 
-                listaVip.putString("primeiroNome", pessoa.getPrimeiroNome());
-                listaVip.putString("segundoNome", pessoa.getSegundoNome());
-                listaVip.putString("nomeCurso", pessoa.getNomeCurso());
-                listaVip.putString("tel", pessoa.getTel());
-                listaVip.apply();
 
                 controller.salvar(pessoa);
             }
