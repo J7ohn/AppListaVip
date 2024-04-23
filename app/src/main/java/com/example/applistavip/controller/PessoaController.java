@@ -13,6 +13,8 @@ public class PessoaController {
 
     SharedPreferences preferences;
     SharedPreferences.Editor listaVip;
+
+
     public static final String NOME_PREFERENCES = "pref_listaVip";
 
     public PessoaController(MainActivity mainActivity){
